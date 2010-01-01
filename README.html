@@ -1,0 +1,517 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>OneBip Payment System for osCommerce</title>
+    <style>
+      *{padding: 0;margin: 0}
+      body, html {
+        color: #000; 
+        font: 12px arial,verdana;
+        height: 100%;
+      }
+      body {
+        min-width: 760px;
+        margin:0;
+      }
+      .clear { clear: both; }
+      #mainContainer {
+        min-height: 100%;
+      }
+      * html #mainContainer {
+        height: 100%;
+      }
+      #header {
+        width:100%;
+        color: #fff;
+        height: 90px;
+        background-color:#6b6f70;
+        position:relative;
+        border-bottom:10px solid #e4e5e7;
+      }
+      div#header #logo {
+        position:absolute;
+        height:90px;
+        width:250px;
+        background:url(readme_files/logo.gif) 0 8px no-repeat;
+        padding-left:175px;
+        padding-top:12px;
+        font-weight:bold;
+        font-size:26px;
+        font-style:italic;
+        top:17px;
+        left:15px;
+      }
+      div#header #signup {
+        float:right;
+        padding-top:34px;
+        padding-right:30px;
+      }
+      div#header #signup a {
+        color:#FFF;
+        font-size:16px;
+        font-weight:bold;
+        text-decoration:none;
+      }
+      div#header #signup a:hover {
+        color:#ff8e00;
+      }
+
+      #left_column {
+        float: left;
+        width: 155px;
+        padding: 5px;
+        position: relative;
+      }
+      .outer {
+        padding-left: 205px;
+      }
+      .inner {
+        width: 100%;
+        padding-bottom: 25px;
+      }
+      .float-wrap {
+        float: left;
+        width: 100%;
+        margin-left: -205px;
+      }
+      #content {
+        float: right;
+        margin-right: -205px;
+        width: 100%;
+        position: relative;
+      }
+      .contentWrap {
+        padding: 10px;
+      }
+      .contentWrap p {
+        padding: 5px 25px 5px 20px;
+      }
+      h1 {
+        line-height:15px; 
+        font-size: 22px;
+        color: #333333;
+        font-weight:bold;
+        padding:10px;
+        padding-bottom:20px;
+      }
+      
+      h2 {
+        line-height:15px; 
+        font-size: 16px;
+        color: #333333;
+        font-weight:bold;
+        padding-left:20px;
+      }
+      fieldset {
+        border: 1px solid #6b6f70;
+        padding: 8px 8px 8px 8px;
+        margin-left:20px;
+        margin-bottom:20px;
+      }
+      fieldset ol {
+        margin-left:30px;
+        line-height:30px;
+      }
+      legend {
+        text-align: center;
+        background: #f1f3f5;
+        border: 1px solid #6b6f70;
+        font-weight: bold;
+        padding: 4px;
+      }
+      textarea {
+        height: 90px;
+        width: 100%;
+        *width:97%;
+        border: 1px solid #000;
+        background-color: #EFEFEF;
+      }
+      
+      #footer {
+        height: 28px;
+        margin-top: -30px;
+        text-align: center;
+        color: #3c4664;
+        background: #f1f3f5;
+        border: 1px solid #cccccc;
+        clear:both;
+      }
+      #footer #copyright {
+        padding:6px 0 0 10px;
+        float:left;
+      }
+      
+      #footer #credit {
+        padding: 6px 10px 0 0;
+        float:right;
+        background:url(readme_files/delogo.gif) 145px 4px no-repeat;
+        padding-right: 200px;
+        height:20px;
+        cursor:pointer;
+        *cusor:hand;
+      }
+      #left_column ul {
+        padding:30px 0 0 30px;
+      }
+      #left_column li {
+        padding-bottom:10px;
+      }
+      #left_column a {
+        color:#000;
+        font-size:14px;
+        font-weight:bold;
+        text-decoration:none;
+      }
+      #left_column a:hover {
+        color:#ff8e00;
+      }
+      p.question {
+        font: 16px Arial,Helvetica,Verdana;
+        font-weight:bold;
+      }
+      p.answer {
+        margin:0 0 20px 20px;
+      }
+      .content-ol {
+        padding-left:60px;
+        line-height:24px;
+      }
+    </style>
+    <script language="javascript">
+      function showPane(id) {
+        var panels = new Array('overview', 'installation', 'use', 'faq');
+        
+        for (x = 0; x < 4; x++)
+          if (id != panels[x])
+            document.getElementById("p_"+panels[x]).style.display = "none";
+
+        document.getElementById("p_"+id).style.display = "block";
+      }
+    </script>
+  </head>
+  <body>
+    <div id="mainContainer">
+      <div id="header">
+        <div id="logo">Documentation</div>
+        <div id="signup"><a href="https://www.onebip.com/merchant/?mod=registration&mrb=1594" target="_BLANK">Sign Up Here!</a></div>
+      </div> 
+      <div class="outer">
+        <div class="inner">
+          <div class="float-wrap">
+            <div id="content"> 
+              <div id="p_overview" class="contentWrap">
+                <h1>OneBip Payment Module Overview</h1>
+                <h2>What is OneBip?</h2>
+                <p>OneBip is a payment service that allows customers to purchase products using their cell phones without the need for bank accounts or credit card numbers.  When a customer purchases an item from your website, the amount is billed to the customer's prepaid or post-paid cell phone and the money is sent to you.  This allows for super quick purchases by anyone with a cell phone.</p>
+                <p>This is a micropayment service that accepts only specific price points (0.99, 1.99, etc) in multiple currencies, which makes it perfect for sites such as MP3, e-book, ringtone, and other types of online stores featuring primarily downloadable products.
+                <br /><br />
+                <h2>What does this contribution do?</h2>
+                <p>Each product that you have selected as being eligible for a OneBip payment will have a OneBip button displayed on those products' pages.</p>
+                <p><img src="readme_files/screenshot1.gif" style="border:1px solid #333" /></p>
+                <p>Clicking on the OneBip button will do one of two things:
+                  <ol class="content-ol">
+                    <li>Unregistered users will be taken to the login page to create an account or log into their account.  Once done, they'll be taken to OneBip to complete their payment.</li>
+                    <li>Users logged in will be taken directly to OneBip to complete their payment.</li>
+                  </ol>
+                </p>
+                <p>After completing the payment at OneBip, the user will be returned to your site to purchase another product.</p>
+              </div>
+              <div id="p_installation" class="contentWrap" style="display:none">
+                <h1>Installation Instructions</h1>
+                <fieldset>
+                  <legend>Step 1 of 8 :: Backup your store!</legend>
+                  <ol>
+                    <li>Back up your database by going to Admin -> Tools -> Database Backup</li>
+                    <li>Back up your store by using your web host's control panel.  Contact your web host for more information.</li>
+                  </ol>
+                </fieldset>
+                <fieldset>
+                  <legend>Step 2 of 8 :: Upload the OneBip files</legend>
+                  <p>Upload the OneBip folder contained in this contribution in the root of your site.  For instance, if you access your store like this:</p>
+                  <p>http://www.example.com/catalog/</p>
+                  <p>You will want your OneBip folder so that it appears here:</p>
+                  <p>http://www.example.com/catalog/OneBip/</p>
+                </fieldset>
+                <fieldset>
+                  <legend>Step 3 of 8 :: Install the database update</legend>
+                  <b>Using a tool like phpMyAdmin, import the following database code:</b>
+                  <textarea>
+INSERT INTO `configuration_group` (`configuration_group_title`, `configuration_group_description`, `sort_order`, `visible`) VALUES ('OneBip', 'OneBip Configuration Options', '9', '1');
+INSERT INTO `configuration` (`configuration_title`, `configuration_key`, `configuration_value`, `configuration_description`, `configuration_group_id`, `sort_order`, `set_function`) VALUES 
+('OneBip Status', 'ONEBIP_STATUS', 'Enabled', 'You can disable OneBip sitewide by setting this to "Disabled".', LAST_INSERT_ID(), '0', 'tep_cfg_select_option(array(\'Enabled\', \'Disabled\'), '), 
+('Order Status OneBip Step 1', 'ONEBIP_ORDER_STATUS_PENDING_1', '6000', 'This is the order status OneBip will set when the customer is sent to OneBip for payment.', LAST_INSERT_ID(), '1', NULL),
+('Order Status OneBip Step 2', 'ONEBIP_ORDER_STATUS_PENDING_2', '6001', 'This is the order status OneBip will set when the customer returns from OneBip and we wait for payment confirmation.', LAST_INSERT_ID(), '2', NULL),
+('Order Status Payment Confirmation', 'ONEBIP_ORDER_STATUS_PAYMENT_CONFIRMATION', '3', 'This is the default order status that OneBip will set after payment has been confirmed for a PHYSICAL product.', LAST_INSERT_ID(), '3', NULL),
+('Button Style', 'ONEBIP_BUTTON_STYLE', 'OneBip/buttons/btn02.gif', 'OneBip button that is displayed on the product_info.php page.', LAST_INSERT_ID(), '4', NULL);
+INSERT INTO `orders_status` (`orders_status_id`, `language_id`, `orders_status_name`) VALUES 
+('6000', '1', 'Customer Sent to OneBip'),
+('6001', '1', 'Pending OneBip Confirmation');
+ALTER TABLE `products` ADD `products_onebip_status` CHAR(1) NOT NULL DEFAULT '0', ADD `products_onebip_id` INT NOT NULL DEFAULT '0';
+ALTER TABLE `orders` ADD `onebip_unique` VARCHAR( 30 ) NOT NULL;
+ALTER TABLE `orders` ADD `onebip_details` TEXT NOT NULL;
+CREATE TABLE orders_products_download_onebip (
+  orders_products_download_id int(11) NOT NULL auto_increment,
+  orders_id int(11) NOT NULL default '0',
+  orders_products_id int(11) NOT NULL default '0',
+  orders_products_filename varchar(255) NOT NULL default '',
+  download_maxdays int(2) NOT NULL default '0',
+  download_count int(2) NOT NULL default '0',
+  PRIMARY KEY  (orders_products_download_id)
+);
+                  </textarea>
+                </fieldset>
+                <fieldset>
+                  <legend>Step 4 of 8 -- Update /catalog/includes/application_top.php</legend>
+                  <b>In /catalog/includes/application_top.php, find the following lines:</b>
+                  <textarea>
+  if (tep_session_is_registered('navigation')) {
+    if (PHP_VERSION < 4) {
+      $broken_navigation = $navigation;
+      $navigation = new navigationHistory;
+      $navigation->unserialize($broken_navigation);
+    }
+  } else {
+    tep_session_register('navigation');
+    $navigation = new navigationHistory;
+  }
+  $navigation->add_current_page();
+                  </textarea>
+                  <br /><br />
+                  <b>And add this code directly beneath them:</b>
+                  <textarea>
+  /* OneBip Modification START */
+  require_once('OneBip/OneBip.php');
+  /* OneBip Modification END */
+                  </textarea>
+                </fieldset>
+                <fieldset>
+                  <legend>Step 5 of 8 -- Update /catalog/product_info.php</legend>
+                  <b>In /catalog/product_info.php, find this block of code:</b>
+                  <textarea>
+      <tr>
+        <td><?php echo tep_draw_separator('pixel_trans.gif', '100%', '10'); ?></td>
+      </tr>
+      <tr>
+        <td><table border="0" width="100%" cellspacing="1" cellpadding="2" class="infoBox">
+          <tr class="infoBoxContents">
+            <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
+              <tr>
+                <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
+                <td class="main"><?php echo '<a href="' . tep_href_link(FILENAME_PRODUCT_REVIEWS, tep_get_all_get_params()) . '">' . tep_image_button('button_reviews.gif', IMAGE_BUTTON_REVIEWS) . '</a>'; ?></td>
+                <td class="main" align="right"><?php echo tep_draw_hidden_field('products_id', $product_info['products_id']) . tep_image_submit('button_in_cart.gif', IMAGE_BUTTON_IN_CART); ?></td>
+                <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+      </tr>
+                  </textarea>
+                  <br /><br />
+                  <b>And add this code ABOVE it:</b>
+                  <textarea>
+<?php 
+  /* OneBip Modification START */
+
+  /* Check if this product is available to be purchased with OneBip */
+  $showOneBip = $OneBip->ProductStatus($_GET['products_id']);
+
+  /* If it's available, ensure that the customer is within one of the available markets */
+  if ($showOneBip) {
+?>
+      <tr>
+        <td><?php echo tep_draw_separator('pixel_trans.gif', '100%', '10'); ?></td>
+      </tr>
+      <tr>
+        <td align="right">
+          <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td class="main" align="right" style="padding-right:10px"><?php echo ONEBIP_BUTTON_TEXT; ?></td>
+              <td class="main" align="right"><input type="image" src="<?php echo ONEBIP_BUTTON_STYLE; ?>" name="OneBipBuyNow" value="1"></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+<?php 
+  }
+  /* OneBip Modification END */ 
+?></textarea>
+                </fieldset>
+                <fieldset>
+                  <legend>Step 6 of 8 -- Update /catalog/<u>admin</u>/includes/application_top.php</legend>
+                  <b>In /catalog/admin/includes/application_top.php, go all the way to the end of the file right before the "?>" and add this block of code:</b>
+                  <textarea>/* OneBip Modification START */
+require_once(DIR_FS_DOCUMENT_ROOT . 'OneBip/OneBip.php');
+/* OneBip Modification END */</textarea>
+                </fieldset>
+                <fieldset>
+                  <legend>Step 7 of 8 -- Update /catalog/<u>admin</u>/categories.php</legend>
+                  <b>In /catalog/admin/categories.php, find this line of code:</b>
+                  <textarea>tep_redirect(tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&pID=' . $products_id));</textarea>
+                  <br /><br />
+                  <b>Then add this block of code ABOVE it:</b>
+                  <textarea>/* OneBip Modification START */
+$OneBip->SaveSettings($products_id);
+/* OneBip Modification END */</textarea>
+                  <br /><br /><hr /><br />
+                  <b>In /catalog/admin/categories.php, find this block of code:</b>
+                  <textarea>
+<script language="javascript"><!--
+updateGross();
+//--></script>
+                  </textarea>
+                  <br /><br />
+                  <b>Then add this block of code BENEATH it:</b>
+                  <textarea><?php /* OneBip Modification START */ ?>
+          <tr>
+            <td colspan="2"><?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <table border="0" style="width:100%;border: 1px solid #cccccc;padding-top: 6px 6px 8px 6px;background-color: #eeeeee;color: #333333;font: 12px Arial,Helvetica,Verdana">
+                <tr>
+                  <td class="main" style="padding:4px 4px 10px 4px;font:16px Arial,Helvatica,Verdana;font-weight:bold"><?php echo ONEBIP_ADMIN_CONFIG_TITLE; ?></td>
+                  <td class="main" rowspan="3" style="padding:10px;text-align:center"><?php echo ONEBIP_ADMIN_CONFIG_TIP; ?><br /><br /><a href="https://www.onebip.com/admin/acctman_items.php" target="_BLANK" style="font:14px Arial,Helvetica;font-weight:bold"><?php echo ONEBIP_ADMIN_CONTROL_PANEL_TEXT; ?></a></td>
+                </tr>
+                <tr>
+                  <td class="main" style="padding:0 0 10px 10px"><?php echo tep_draw_checkbox_field('products_onebip_status', '1', $OneBip->ProductStatus($_GET['pID'])) . '&nbsp;' . ONEBIP_ADMIN_CONFIG_STATUS; ?></td>
+                </tr>
+                <tr>
+                  <td class="main" style="padding:0 0 10px 10px"><?php echo ONEBIP_ADMIN_CONFIG_ID . '&nbsp;' . tep_draw_input_field('products_onebip_id', $OneBip->ProductOneBipID($_GET['pID'])) . '&nbsp;' . ONEBIP_ADMIN_CONFIG_ID_HELP; ?></td>
+                </tr>
+                
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2"><?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
+          </tr>
+<?php /* OneBip Modification END */ ?></textarea>
+                </fieldset>
+                <fieldset>
+                  <legend>Step 8 of 8 -- Update /catalog/<u>admin</u>/orders.php</legend>
+                  <b>In /catalog/admin/orders.php, find this block of code:</b>
+                  <textarea><?php
+    for ($i = 0, $n = sizeof($order->totals); $i < $n; $i++) {
+      echo '              <tr>' . "\n" .
+           '                <td align="right" class="smallText">' . $order->totals[$i]['title'] . '</td>' . "\n" .
+           '                <td align="right" class="smallText">' . $order->totals[$i]['text'] . '</td>' . "\n" .
+           '              </tr>' . "\n";
+    }
+?>
+            </table></td>
+          </tr>
+        </table></td>
+      </tr></textarea>
+                  <br /><br />
+                  <b>Then add this block of code BENEATH it:</b>
+                  <textarea>
+<?php 
+  /* OneBip Modification START */ 
+  
+  if (count($OneBip->orderDetails) > 0) {
+?>
+      <tr>
+        <td><?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
+      </tr>
+      <tr>
+        <td>
+          <table border="0" cellspacing="4" style="border: 1px solid #cccccc;padding-top: 6px 6px 8px 6px;background-color: #eeeeee;color: #333333;font: 12px Arial,Helvetica,Verdana">
+            <tr>
+              <td class="main" colspan="2" style="padding:4px 4px 10px 4px;font:14px Arial,Helvatica,Verdana;font-weight:bold;text-align:center"><?php echo ONEBIP_ADMIN_ORDER_DETAILS_HEADER; ?></td>
+            </tr>
+<?php
+    foreach ($OneBip->orderDetails as $key => $val) {
+
+      $keyMap = array('payment_id' => 'OneBip Payment ID:',
+                      'ccy' => 'Currency:',
+                      'amount' => 'Net Revenue:',
+                      'endUserCost' => 'End User Cost:');
+                      
+      if (array_key_exists($key, $keyMap)) {
+?>
+            <tr>
+              <td class="main" align="right"><?php echo $keyMap[$key]; ?></td>
+              <td class="main"><?php echo ($key == 'amount' || $key == 'endUserCost' ? number_format($val / 100, 2) . ' ' . $OneBip->orderDetails['ccy'] : $val); ?></td>
+            </tr>
+<?php
+      }
+    }
+?>
+          </table>
+        </td>
+      </tr>
+<?php 
+  }
+  /* OneBip Modification END */ 
+?>
+                  </textarea>
+                </fieldset>
+              </div>
+              <div id="p_use" class="contentWrap" style="display:none">
+                <h1>How to Use</h1>
+                <fieldset>
+                  <legend>Step 1 of 4 :: Create an account and/or log in to OneBip</legend>
+                  <p>To use OneBip, you must first create an account.  You can do so by clicking here:</p>
+
+                  <p><a href="https://www.onebip.com/merchant/?mod=registration&mrb=1594" target="_BLANK">Sign Up Here!</a></p>
+
+                  <p>After you have signed up, log in to your account.</p>
+                </fieldset>
+                <fieldset>
+                  <legend>Step 2 of 4 :: Add your store's website to your account</legend>
+                  <p>Once you're in your OneBip account, click on "My Sites & Items" and then click on "My Sites."</p>
+                  <p>When the page loads, click on the button "Add new site" and follow the instructions.</p>
+                  <p><b>The "Notification URL (optional)" field should be:<br />http://www.YOUR_STORE.com/OneBip/OneBip.php</b></p>
+                  <p>When you have completed the fields, click "Save Site."  Some sites must be approved before use, which may take up to 24 hours, so please be patient if this is necessary.</p>
+                </fieldset>
+                <fieldset>
+                  <legend>Step 3 of 4 :: Create items with specific price points</legend>
+                  <p>Return to "My Sites & Items" -> "My Sites" if you're no longer there and to the right of the site that you just added, click "Add Item."</p>
+                  <p>You should not create an item for every product in your store but instead create a single item for each price point that you offer.</p>
+                  <p>For instance, let's say that you sell MP3s for $0.99.  You wouldn't create an item on OneBip for every product in your store but you would instead create a single item called "$0.99 MP3" with a price point of $0.99 that can be used for every product that you offer at $0.99.</p>
+                  <p>Create a new item using this form and hover your mouse over the "i" icons if you have a question about what a field means.</p>
+                  <p><b>The Thank You/Download page should be:<br />http://www.YOUR_STORE.com/checkout_success.php</b></p>
+                  <p>Click "Save Item" to create the item.</p>
+                  <p>When the page that lists the item you created comes up, note the URL in the "Payment Page" column and write down the number at the end of the address.  For instance, if the URL is this:</p>
+                  <p>https://www.onebip.com/otms/?item=<b>1234</b></p>
+                  <p>You need to write down "1234" because we'll use it when setting up the product in your store.</p>
+                </fieldset>
+                <fieldset>
+                  <legend>Step 4 of 4 :: Create/Edit a product in your store for OneBip</legend>
+                  <p>Now go to your osCommerce store and log into your admin.  Click on "Catalog" and create or edit a product that will be purchasable with OneBip.</p>
+                  <p>On the product edit page, you'll find a new box labeled, "OneBip Product Configuration."</p>
+                  <p>To allow this product to be purchased with OneBip, select the checkbox labelled: "This item can be purchased using OneBip."</p>
+                  <p>Then type in the number that you copied down in the last step into the textbox.  This assigns a specific OneBip item to a product in your store.</p>
+                  <p>After that, save the product.</p>
+                </fieldset>
+                
+              </div>
+              <div id="p_faq" class="contentWrap" style="display:none">
+                <h1>Frequently Asked Questions</h1>
+                <p class="question">Q: Can I create a custom price?</p>
+                <p class="answer">OneBip only allows specific price points at this time.  The company has stated that the next version of the API will allow for more flexibility.</p>
+                
+                <p class="question">Q: Why can't the user select a shipping address?</p>
+                <p class="answer">OneBip only allows specific price points at this time, which means that it cannot currently accept additional charges such as shipping, tax, etc.  For that reason and because this product is best suited to stores offering downloads, the shipping page is completely skipped to speed up checkout.  The user's default address is added to the order, though.</p>
+              </div>
+            </div>
+            <div id="left_column"> 
+              <ul>
+                <li><a href="#overview" onclick="showPane('overview');">Overview</a></li>
+                <li><a href="#installation" onclick="showPane('installation');">How to Install</a></li>
+                <li><a href="#use" onclick="showPane('use');">How to Use</a></li>
+                <li><a href="#faq" onclick="showPane('faq');">Questions?</a></li>
+              </ul>
+            </div>
+            <div class="clear"></div> 
+          </div>
+          <div class="clear"></div> 
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      <div id="copyright"><b>OneBip</b> - Copyright &copy; 2003-2007 - All Rights Reserved</div>
+      <div id="credit" onclick="window.location.href='mai'+'lto'+':info'+'&#064;dy'+'nam'+'oef'+'fects'+'.c'+'om'">Developed for OneBip by:</div>
+    </div>
+  </body>
+</html>
